@@ -1,0 +1,270 @@
+:root {
+    /* Se utiliza para almacenar valores reutilizables como colores, tipografías o tamaños  */
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --fuente-principal: 3.8rem;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    /*1 rem = 10 px */
+    background-image: linear-gradient(to top, #dce9f7 0%, var(--blanco) 100%);
+
+}
+
+.titulo {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--primario);
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+
+}
+
+.titulo span {
+    font-size: 2rem;
+    color: var(--gris);
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 5px rgba(173, 173, 173, 0.73);
+    -moz-box-shadow: 0px 5px 15px 5px rgba(173, 173, 173, 0.73);
+    box-shadow: 0px 5px 15px 5px rgba(173, 173, 173, 0.73);
+
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Esto centrará el h2 ("Mis servicios") y los h3 de cada sección */
+.contenedor h2,
+.contenedor h3 {
+    text-align: center;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 2rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-evenly;
+        /*el justify conten es para elementos horizontales, mientras que el align items es para elementos verticales*/
+
+    }
+
+}
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: center;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero {
+    background-image: url(img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 410px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    /*esta seccion sirve para hacer un degrade a la imagen, colocando un cuadro negro y degradandolo*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .7);
+
+    /*el sgte codigo sirve para centrar horizontal y verticalmente elementos*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+/*Servicios*/
+@media (min-width: 760px) {
+
+    .servicios {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /*sirve para divivir el elementos*/
+        column-gap: 1 rem;
+        /*separacion de columnas*/
+
+    }
+}
+
+/*realizando la parte de servicios*/
+.servicio,
+.navegacion-principal,
+.formulario
+{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*contacto seccion de diseño*/
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    /*utiliza el valor mas pequeño*/
+    margin: 0 auto;          /*margin sirve para centrar y se puede utilizar cuando su padre no se un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    color: var(--primario);
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contenedor-campo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /*sirve para definir el numero, el tamaño y la estructura de las columnas (tambien se puede poner un 50% 50%)*/
+        column-gap: 1rem; /*sirve para separar columnas*/
+        grid-template-rows: auto auto 20rem;
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){    /*sirve para seleccionar una clase en particular si se tienen varias con el mismo nombre*/
+        grid-column: 1/3;    /*sirve para posicionar un elemento hijo dentro de las columnas */
+                                /*grid row sirve para posicionar un elemento hijo verticalmente dentro de las filas del contenedor*/
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.enviar .boton {
+    width: 100%;
+}
+
+.campo textarea {
+    height: 20rem;
+    width: 100%;
+}
+/*diseño de pie de pagina*/
+.footer{
+    text-align: center;
+}
